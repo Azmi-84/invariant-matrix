@@ -1,0 +1,426 @@
+\documentclass[12pt]{article}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{listings}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\large IPE 4531: Probability and Statistics} \\
+    \vspace{0.5em}
+    \textbf{Assignment 1} \\
+    \vspace{0.5em}
+    \textit{Abdullah al Azmi, 220011230}
+    \vspace{1em}
+\end{center}
+
+\vspace{1em}
+\hrule
+
+\begin{center}
+    \textbf{Binomial Distribution}
+\end{center}
+
+\hrule
+\vspace{1em}
+
+\noindent \textbf{5.4}
+
+\begin{enumerate}
+
+    \item [\textbf{(a)}] The probability that exactly 2 thefts are drug-related is given by the binomial probability formula:
+
+    \begin{equation*}
+        P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}
+    \end{equation*}
+
+    where \( n = 5 \), \( k = 2 \), and \( p = 0.75 \). Thus,
+
+    \begin{align*}
+        P(X = 2) &= \binom{5}{2} (0.75)^2 (0.25)^3 \\
+                 &= 10 \times 0.5625 \times 0.015625 \\
+                 &= 0.087890625
+    \end{align*}
+
+    Therefore, the probability that exactly 2 thefts are drug-related is \textbf{0.0879} (or \textbf{8.79\%}).
+
+    \item [\textbf{(b)}] The probability that at most 3 thefts are drug-related is the sum of the probabilities of having 0, 1, 2, or 3 drug-related thefts:
+    
+    \begin{align*}
+        P(X \leq 3) &= P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3) \\
+                    &= \binom{5}{0} (0.75)^0 (0.25)^5 + \binom{5}{1} (0.75)^1 (0.25)^4 \\
+                    &\quad + \binom{5}{2} (0.75)^2 (0.25)^3 + \binom{5}{3} (0.75)^3 (0.25)^2 \\
+                    &= 0.0009765625 + 0.0146484375 + 0.087890625 + 0.263671875 \\
+                    &= 0.3671875
+    \end{align*}
+
+    Therefore, the probability that at most 3 thefts are drug-related is \textbf{0.3672} (or \textbf{36.72\%}).
+
+\end{enumerate}
+
+\vspace{1em}
+
+\noindent \textbf{5.5}
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that out of 20 pipework failures, at least 10 are caused by operator error can be calculated using the binomial probability formula. Here, \( n = 20 \), \( k \geq 10 \), and \( p = 0.30 \). We need to calculate:
+    
+    \begin{equation*}
+        P(X \geq 10) = \sum_{k=10}^{20} \binom{20}{k} (0.30)^k (0.70)^{20-k}
+    \end{equation*}
+    
+    Using the complement rule or statistical software, we get:
+    
+    \begin{equation*}
+        P(X \geq 10) = 1 - P(X \leq 9) \approx 0.0479
+    \end{equation*}
+    
+    Therefore, the probability is \textbf{0.0479} (or \textbf{4.79\%}).
+
+    \item [\textbf{(b)}] The probability that no more than 4 out of 20 pipework failures are caused by operator error is given by:
+    
+    \begin{equation*}
+        P(X \leq 4) = \sum_{k=0}^{4} \binom{20}{k} (0.30)^k (0.70)^{20-k}
+    \end{equation*}
+    
+    This calculation yields \textbf{0.2375} (or \textbf{23.75\%}).
+
+    \item [\textbf{(c)}] Given that the probability of exactly 5 failures due to operator error can be calculated as:
+
+    \begin{equation*}
+        P(X = 5) = \binom{20}{5} (0.30)^5 (0.70)^{15} \approx 0.1789
+    \end{equation*}
+
+    The probability is \textbf{0.1789}. Since this is a relatively reasonable probability (about 18\%), observing exactly 5 failures does not provide strong evidence against the 30\% figure. However, further investigation and data collection would be necessary to make a definitive conclusion.
+
+\end{enumerate}
+
+\vspace{1em}
+
+\noindent \textbf{5.6}
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability of 2 to 5 companies giving 4 weeks of vacation can be calculated using the binomial probability formula. Here, \( n = 6 \), \( p = 0.5 \), and we need to calculate:
+    
+    \begin{equation*}
+        P(2 \leq X \leq 5) = \sum_{k=2}^{5} \binom{6}{k} (0.5)^k (0.5)^{6-k} = \sum_{k=2}^{5} \binom{6}{k} (0.5)^6
+    \end{equation*}
+    
+    \begin{align*}
+        P(2 \leq X \leq 5) &= [15 + 20 + 15 + 6] \times (0.5)^6 \\
+                           &= 56 \times 0.015625 \\
+                           &= 0.8750
+    \end{align*}
+
+    Therefore, the probability is \textbf{0.8750} (or \textbf{87.50\%}).
+
+    \item [\textbf{(b)}] The probability that fewer than 3 companies give 4 weeks of vacation is given by:
+    
+    \begin{equation*}
+        P(X < 3) = P(X = 0) + P(X = 1) + P(X = 2)
+    \end{equation*}
+    
+    \begin{align*}
+        P(X < 3) &= \binom{6}{0}(0.5)^6 + \binom{6}{1}(0.5)^6 + \binom{6}{2}(0.5)^6 \\
+                 &= [1 + 6 + 15] \times 0.015625 \\
+                 &= 0.34375
+    \end{align*}
+
+    Therefore, the probability is \textbf{0.3438} (or \textbf{34.38\%}).
+\end{enumerate}
+
+\vspace{1em}
+
+\noindent \textbf{5.9} Using the binomial probability formula, where \( n = 7 \), \( k = 5 \), and \( p = 0.9 \):
+
+\begin{align*}
+    P(X = 5) &= \binom{7}{5} (0.9)^5 (0.1)^2 \\
+             &= 21 \times 0.59049 \times 0.01 \\
+             &= 0.1240
+\end{align*}
+
+Therefore, the probability that exactly 5 of the next 7 patients survive is \textbf{0.1240} (or \textbf{12.40\%}).
+
+\vspace{1em}
+\hrule
+
+\begin{center}
+    \textbf{Hypergeometric Distribution}
+\end{center}
+
+\hrule
+\vspace{1em}
+
+\noindent \textbf{5.29} This is a hypergeometric probability problem. The probability of selecting exactly \( k \) successes (daffodils) in \( n \) draws (bulbs planted) from a finite population without replacement can be calculated using the formula:
+
+\begin{equation*}
+    P(X = k) = \frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}}
+\end{equation*}
+
+where \( N = 9\), \( K = 4 \), \( n = 6 \), and \( k = 2 \).
+
+\begin{align*}
+    P(X = 2) &= \frac{\binom{4}{2} \binom{5}{4}}{\binom{9}{6}} \\
+             &= \frac{6 \times 5}{84} \\
+             &= \frac{30}{84} = 0.3571
+\end{align*}
+
+Therefore, the probability that the homeowner planted 2 daffodils and 4 tulip bulbs is \textbf{0.3571} (or \textbf{35.71\%}).
+
+\vspace{1em}
+
+\noindent \textbf{5.30} This is another hypergeometric probability problem. The probability of selecting at least one narcotic tablet in a sample of 3 tablets from a total of 15 tablets (6 narcotics and 9 vitamins) can be calculated as follows:
+
+\begin{align*}
+    P(\text{at least 1 narcotic}) &= 1 - P(\text{no narcotics}) \\
+    P(\text{no narcotics}) &= \frac{\binom{6}{0}\binom{9}{3}}{\binom{15}{3}} = \frac{84}{455} = 0.1846
+\end{align*}
+
+\begin{equation*}
+    P(\text{at least 1 narcotic}) = 1 - 0.1846 = 0.8154
+\end{equation*}
+
+Therefore, the probability that the traveler will be arrested for illegal drug possession is \textbf{0.8154} (or \textbf{81.54\%}).
+
+\vspace{1em}
+
+\noindent \textbf{5.31} The random variable \( X \) can take on the values 0, 1, 2, or 3, representing the number of doctors on the committee. The total number of ways to select a committee of size 3 from 6 individuals (4 doctors and 2 nurses) is given by:
+
+\begin{equation*}
+    \binom{6}{3} = 20
+\end{equation*}
+
+The probabilities for each value of \( X \) are calculated as follows:
+
+\begin{itemize}
+    \item \( P(X = 0) \): Selecting 0 doctors and 3 nurses is not possible since there are only 2 nurses. Thus, \( P(X = 0) = 0 \).
+    
+    \item \( P(X = 1) \): Selecting 1 doctor and 2 nurses:
+    \begin{equation*}
+        P(X = 1) = \frac{\binom{4}{1} \binom{2}{2}}{\binom{6}{3}} = \frac{4 \times 1}{20} = 0.2
+    \end{equation*}
+    
+    \item \( P(X = 2) \): Selecting 2 doctors and 1 nurse:
+    \begin{equation*}
+        P(X = 2) = \frac{\binom{4}{2} \binom{2}{1}}{\binom{6}{3}} = \frac{6 \times 2}{20} = 0.6
+    \end{equation*}
+    
+    \item \( P(X = 3) \): Selecting all 3 members as doctors:
+    \begin{equation*}
+        P(X = 3) = \frac{\binom{4}{3} \binom{2}{0}}{\binom{6}{3}} = \frac{4 \times 1}{20} = 0.2
+    \end{equation*}
+\end{itemize}
+
+Thus, the probability distribution of \( X \) is:
+\begin{center}
+\begin{tabular}{c|c}
+    \( X \) & \( P(X) \) \\
+    \hline
+    0 & 0 \\
+    1 & 0.2 \\
+    2 & 0.6 \\
+    3 & 0.2 \\
+\end{tabular}
+\end{center}
+
+To find \( P(2 \leq X < 3) \):
+
+\begin{equation*}
+    P(2 \leq X < 3) = P(X = 2) = \textbf{0.6}
+\end{equation*}
+
+\vspace{1em}
+
+\noindent \textbf{5.32}
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that all 4 will fire is given by the hypergeometric probability formula:
+    
+    \begin{align*}
+        P(X = 4) &= \frac{\binom{7}{4} \binom{3}{0}}{\binom{10}{4}} \approx 0.1667
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.1667} (or \textbf{16.67\%}).
+
+    \item [\textbf{(b)}] The probability that at most 2 will not fire (i.e., at least 2 will fire) is given by:
+    
+    \begin{align*}
+        P(X \geq 2) &= P(X = 2) + P(X = 3) + P(X = 4) \\
+                    &= \frac{\binom{7}{2} \binom{3}{2}}{\binom{10}{4}} + \frac{\binom{7}{3} \binom{3}{1}}{\binom{10}{4}} + \frac{\binom{7}{4} \binom{3}{0}}{\binom{10}{4}} \approx 0.9667
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.9667} (or \textbf{96.67\%}).
+
+\end{enumerate}
+
+\vspace{1em}
+
+\noindent \textbf{5.46}
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that for a given sample there will be 1 faulty compressor is given by the hypergeometric probability formula:
+    \begin{align*}
+        P(X = 1) &= \frac{\binom{2}{1} \binom{13}{4}}{\binom{15}{5}} \approx 0.4762
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.4762} (or \textbf{47.62\%}).
+
+    \item [\textbf{(b)}] The probability that inspection will discover both faulty compressors is given by:
+    \begin{align*}
+        P(X = 2) &= \frac{\binom{2}{2} \binom{13}{3}}{\binom{15}{5}} \approx 0.0952
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.0952} (or \textbf{9.52\%}).
+
+\end{enumerate}
+
+\vspace{1em}
+
+\noindent \textbf{5.47}
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that inspection of 5 firms will find no violators is given by the hypergeometric probability formula:
+    \begin{align*}
+        P(X = 0) &= \frac{\binom{17}{5} \binom{3}{0}}{\binom{20}{5}} \approx 0.3991
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.3991} (or \textbf{39.91\%}).
+
+    \item [\textbf{(b)}] The probability that the inspection plan above will find two violators is given by:
+    \begin{align*}
+        P(X = 2) &= \frac{\binom{3}{2} \binom{17}{3}}{\binom{20}{5}} \approx 0.1316
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.1316} (or \textbf{13.16\%}).
+\end{enumerate}
+
+\vspace{1em}
+\hrule
+
+\begin{center}
+    \textbf{Poisson Distribution}
+\end{center}
+
+\hrule
+\vspace{1em}
+
+\noindent \textbf{5.56} Using the Poisson probability formula:
+
+\begin{equation*}
+    P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}
+\end{equation*}
+
+where \( \lambda = 3 \) accidents per month.
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that exactly 5 accidents will occur is given by:
+    
+    \begin{align*}
+        P(X = 5) &= \frac{e^{-3} 3^5}{5!} \\
+                 &\approx 0.1008
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.1008} (or \textbf{10.08\%}).
+
+    \item [\textbf{(b)}] The probability that fewer than 3 accidents will occur is given by:
+    
+    \begin{align*}
+        P(X < 3) &= P(X = 0) + P(X = 1) + P(X = 2) \\
+                 &= \frac{e^{-3} 3^0}{0!} + \frac{e^{-3} 3^1}{1!} + \frac{e^{-3} 3^2}{2!} \\
+                 &\approx 0.4232
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.4232} (or \textbf{42.32\%}).
+
+    \item [\textbf{(c)}] The probability that at least 2 accidents will occur is given by:
+    
+    \begin{align*}
+        P(X \geq 2) &= 1 - P(X < 2) \\
+                    &= 1 - [P(X = 0) + P(X = 1)] \\
+                    &\approx 0.8009
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.8009} (or \textbf{80.09\%}).
+\end{enumerate}
+
+\noindent\textbf{5.57}
+
+Using the Poisson probability formula with \( \lambda = 2 \) errors per page:
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that she will make 4 or more errors is given by:
+    
+    \begin{align*}
+        P(X \geq 4) &= 1 - P(X < 4) \\
+                    &= 1 - [P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3)] \\
+                    &\approx 0.1429
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.1429} (or \textbf{14.29\%}).
+
+    \item [\textbf{(b)}] The probability that she will make no errors is given by:
+    
+    \begin{align*}
+        P(X = 0) &= \frac{e^{-2} 2^0}{0!} \\
+                 &\approx 0.1353
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.1353} (or \textbf{13.53\%}).
+\end{enumerate}
+
+\noindent\textbf{5.58}
+
+Using the Poisson probability formula with \( \lambda = 6 \) hurricanes per year:
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that fewer than 4 hurricanes will hit the area is given by:
+    
+    \begin{align*}
+        P(X < 4) &= P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3) \\
+                 &\approx 0.1512
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.1512} (or \textbf{15.12\%}).
+
+    \item [\textbf{(b)}] The probability that anywhere from 6 to 8 hurricanes will hit the area is given by:
+    
+    \begin{align*}
+        P(6 \leq X \leq 8) &= P(X = 6) + P(X = 7) + P(X = 8) \\
+                           &\approx 0.3936
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.3936} (or \textbf{39.36\%}).
+\end{enumerate}
+
+\noindent \textbf{5.73}
+
+\begin{enumerate}
+    \item [\textbf{(a)}] The probability that the staff cannot accommodate the patient traffic (more than 10 emergencies) is given by:
+    
+    \begin{align*}
+        P(X > 10) &= 1 - P(X \leq 10) \\
+                  &\approx 1 - 0.9863 \\
+                  &= 0.0137
+    \end{align*}
+    
+    Therefore, the probability is \textbf{0.0137} (or \textbf{1.37\%}).
+
+    \item [\textbf{(b)}] The probability that more than 20 emergencies arrive during a 3-hour shift is given by:
+    
+    \begin{align*}
+        P(X > 20) &= 1 - P(X \leq 20) \\
+                  &\approx 1 - 0.9989 \\
+                  &= 0.0011
+    \end{align*}
+
+    Therefore, the probability is \textbf{0.0011} (or \textbf{0.11\%}).
+
+\end{enumerate}
+
+\end{document}
