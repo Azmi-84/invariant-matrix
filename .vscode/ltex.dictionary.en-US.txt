@@ -1,3 +1,7 @@
 irrotational
 al
 Azmi
+keywordstyle
+stringstyle
+commentstyle
+breaklines

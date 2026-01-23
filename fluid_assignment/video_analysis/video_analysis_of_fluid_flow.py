@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.19.4"
+__generated_with = "0.19.5"
 app = marimo.App(width="medium")
 
 
@@ -8,8 +8,9 @@ app = marimo.App(width="medium")
 def _():
     import cv2
     import numpy as np
+    import seaborn as sns
     import matplotlib.pyplot as plt
-    return cv2, plt
+    return cv2, np, plt, sns
 
 
 @app.cell
@@ -71,17 +72,44 @@ def _(cap, cv2, frames, pixel_values, x, y):
 @app.cell
 def _(cv2, frames, plt):
     # display the first frame with the marked coordinates
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(12, 6))
     plt.imshow(cv2.cvtColor(frames[0], cv2.COLOR_BGR2RGB))
-    plt.title("Video Analysis for Fluid Properties at Various Coordinates")
+    # plt.title("Video Analysis for Fluid Properties at Various Coordinates")
     plt.grid(True, alpha=0.5)
     plt.axis('on')
+    plt.savefig('marked_coordinates_in_first_frame.svg', format='svg')
     plt.show()
     return
 
 
 @app.cell
-def _():
+def _(np, pixel_values, plt, sns, y):
+    # Heatmap of pixel intensities over time
+    intensity_matrix = np.array([pixel_values[coord] for coord in y])
+
+    plt.figure(figsize=(14, 6))
+    sns.heatmap(intensity_matrix, cmap='crest', cbar_kws={'label': 'Pixel Intensity (0-255)'}, yticklabels=y)
+    # plt.title('Heatmap of Pixel Intensities at x={} Over Time'.format(x))
+    plt.xlabel('Frame Number')
+    plt.ylabel('Y-Coordinate')
+    plt.savefig('heatmap_of_different_frame_and_coordinates.svg', format='svg')
+    plt.show()
+    return
+
+
+@app.cell
+def _(pixel_values, plt, y):
+    # Plot pixel intensity over time for each y-coordinate
+    plt.figure(figsize=(12, 6))
+    for _coord in y:
+        plt.plot(pixel_values[_coord], label=f'y={_coord}')
+    # plt.title('Pixel Intensity at (x={}) Over Time'.format(x))
+    plt.xlabel('Frame Number')
+    plt.ylabel('Pixel Intensity (0-255)')
+    plt.grid(True, alpha=0.5)
+    plt.legend()
+    plt.savefig('pixel_instensity_over_time.svg', format='svg')
+    plt.show()
     return
 
 

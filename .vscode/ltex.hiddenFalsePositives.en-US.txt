@@ -1,0 +1,2 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qlanguage=Python, keywordstyle=, stringstyle=, commentstyle=,\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qlanguage=Python, keywordstyle=, stringstyle=, commentstyle=, breaklines=true\\E$"}

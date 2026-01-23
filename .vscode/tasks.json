@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Convert SVG to PDF",
+            "type": "shell",
+            "command": "for file in /home/abdullahalazmi/Programming/assignments/fluid_assignment/figures/*.svg; do inkscape \"$file\" --export-type=pdf; done",
+            "problemMatcher": [],
+            "group": "build"
+        }
+    ]
+}
