@@ -188,10 +188,46 @@
 \hrule
 \vspace{1.5em}
 
-\noindent \textbf{Q2} For a Rankine half body, the stagnation point lies on the positive x-axis where $\theta = 0$. Substituting $\theta = 0$ into the stream function gives $\psi = 0$. Therefore, the streamline passing through the stagnation point corresponds to $\psi = 0$. The equation of the streamline passing through the stagnation point is given by:
+\noindent \textbf{Q2} For a \textbf{Rankine Half Body}, the flow is obtained by superposing a uniform flow of speed U in the x-direction, and a point source of strength $m$ at the origin. The stagnation point lies where the uniform flow cancels out the source flow and that point is on the negative x-axis where $\theta = \pi$. Now, evaluating the stream function at the stagnation point:
 
 \begin{equation*}
-    \psi = 0 \implies Ur\sin\theta + \frac{m}{2\pi}\theta = 0
+    \psi_s = U r \sin \theta + \frac{m}{2\pi} \theta
+\end{equation*}
+
+Substituting the value of $\theta$:
+
+\begin{equation*}
+    \psi_s = U r \sin \pi + \frac{m}{2\pi} (\pi) = 0 + \frac{m}{2} = \frac{m}{2}
+\end{equation*}
+
+Thus, the value of the stream function at the stagnation point is $\frac{m}{2}$.
+
+\vspace{1em}
+
+\textbf{Equation of streamline}
+
+\vspace{1em}
+
+The equation of the streamline that passes through the stagnation point can be found by setting the stream function equal to $\psi_s$:
+
+\begin{equation*}
+    \psi = U r \sin \theta + \frac{m}{2\pi} \theta = \frac{m}{2}
+\end{equation*}
+
+Rearranging the equation and solving for $r$:
+
+\begin{equation*}
+    U r \sin \theta = \frac{m}{2} - \frac{m}{2\pi} \theta
+\end{equation*}
+
+\begin{equation*}
+    r = \frac{\frac{m}{2} - \frac{m}{2\pi} \theta}{U \sin \theta} = \frac{m}{2\pi U} \cdot \frac{\pi - \theta}{\sin \theta}
+\end{equation*}
+
+Therefore, the equation of the streamline that passes through the stagnation point is:
+
+\begin{equation*}
+    r = \frac{m}{2\pi U} \cdot \frac{\pi - \theta}{\sin \theta}
 \end{equation*}
 
 \vspace{1.5em}
@@ -229,7 +265,7 @@
         \label{fig:heatmap}
     \end{figure}
 
-    \item [\textbf{(iv)}] The force I think drive this flow is the pressure difference between the tap and the basin. The water flows from the higher 0pressure region (tap) to the lower pressure region (basin) due to gravity and the pressure exerted by the water supply system.
+    \item [\textbf{(iv)}] The force I think drive this flow is the pressure difference between the tap and the basin. The water flows from the higher pressure region (tap) to the lower pressure region (basin) due to gravity and the pressure exerted by the water supply system.
     
     \item [\textbf{(v)}] Actually, there was no special reason for choosing this particular flow. I just wanted to capture a simple and common example of fluid flow that is easily observable in everyday life, and I found that the water flowing from a tap to a basin is one of the straightforward examples of fluid flow that I could easily photograph.
 

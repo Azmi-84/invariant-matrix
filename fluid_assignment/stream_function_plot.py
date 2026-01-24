@@ -10,7 +10,7 @@ X, Y = np.meshgrid(x, y)
 
 psi = a_val * (X**2 * Y - (Y**3)/3)
 
-plt.figure(figsize=(12, 6))
+plt.figure(figsize=(10, 8))
 contour = plt.contour(X, Y, psi, levels=c_values, colors='blue')
 plt.clabel(contour, inline=True, fontsize=8)
 plt.xlabel('x-axis')
