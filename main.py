@@ -1,5 +1,5 @@
 def main():
-    print("Hello from assignments!")
+    print("Hello from invariant-matrix!")
 
 
 if __name__ == "__main__":
