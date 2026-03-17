@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage[most]{tcolorbox}
+\usepackage{microtype}
+
+\geometry{a4paper, margin=1in}
+\onehalfspacing
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection}{1em}{}
+
+\newtcolorbox{presentationbox}[1]{
+    enhanced,
+    colback=blue!5!white, % Subtle background tint
+    colframe=blue!75!black,
+    fonttitle=\large\bfseries,
+    title=#1,
+    sharp corners,
+    boxrule=0.8pt,
+    drop lifted shadow, % More professional shadow style
+    width=\textwidth,
+    center,
+    breakable
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{2cm}
+        {\Huge \textbf{ IPE 4531: Probability and Statistics}} \\
+        \vspace{1cm}
+        \Large{\textbf{Assignment II}} \\
+
+        \vfill
+
+        \textit{\large Submitted by:} \\
+        \vspace{0.3cm}
+        \textbf{Abdullah al Azmi} \\
+        \textbf{ID: 220011230} \\
+
+        \vfill
+
+        \textit{\large Submitted to:} \\
+        \vspace{0.3cm}
+        \textbf{\Large Prof. Dr. A. R. M. Harunur Rashid} \\
+        \textbf{Department of Mechanical and Production Engineering} \\
+
+        \vfill
+
+        \textbf{Date of Submission: \today}
+        \vspace*{1cm}
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+\section{Part I}
+
+\begingroup
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+Machine learning (ML) is often perceived as a purely computational field where complex algorithms and power domains. In its core, it is deeply a statistical endeavor. In this process computers use algorithms to identify the complex linear and non-linear patterns of data which helps to make prediction. These concepts are fundamentally addressed by the principles of statistics and probability. The solid grasp of statistics and probability form the language in which machine learning problems are defined and the tools with which the models and frameworks are built.
+
+It is said that before we learn anything we must understand the data properly, and it is true for computers as well. The concepts of \textbf{mean, median}, and \textbf{standard deviation} are the first tools for exploring a dataset. In machine learning, understanding the distribution of a feature (what we typically call column) is crucial for data preprocessing. For example, knowing the standard deviation helps in feature scaling which is very important for distance based model like SVM (Support Vector Machine) and for neural network.
+
+Another important factor is understanding the proper distribution of the data. Before building a model, we often visualize data to see if it follows a common pattern like normal distribution. This is true that real world data is rarely perfectly normal, yet this concepts serves as a reference point. Further, understanding distributions is key to EDA (Exploratory Data Analysis) which is a critical process of visualizing and summarizing data to uncover initial patterns, anomalies and relationships.
+
+Probability which is the measure of uncertainty, is the very language of machine learning. Most machine learning (ML) is about quantifying the likelihood of an outcome rather finding the absolute truth.
+
+The most important probabilistic concept of machine learning are conditional probability and baye's theorem. For example, a spam filer, is trying to find $P(\text{spam}|\text{email content})$, which can be found using conditional probability. Baye's theorem provides a mathematical framework for updating our beliefs based on new evidence. It is the foundation of a whole family of machine learning model called Naive Bayes Classifier, which is surprisingly effective for text classification.
+
+In conclusion, machine learning is a modern and computational statistics. The concepts from an introductory course are not prerequisites to be memorized and forgotten. They are the very vocabulary, grammar, and logic of the field. A strong intuition for probability allows one to understand the uncertainty inherent in predictions, while a grounding in statistics provides the framework for learning from data.
+
+\endgroup
+
+\newpage
+
+\section{Part II}
+
+\begin{presentationbox}{Understanding Bayes Theorem With Ratios}
+    \begin{itemize}[label=\color{blue}$\bullet$]
+        \item Traditional Bayes' Theorem using percentages can be cognitively taxing. The ratio approach simplifies this by treating probability as a process of \textbf{updating beliefs}.
+        \item Instead of the standard formula $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$, we use the intuitive relationship:
+              $$\text{Prior Odds} \times \text{Evidence Adjustment} = \text{Posterior Odds}$$
+        \item This allows for "stacking" multiple pieces of evidence simply by multiplying their respective likelihood ratios.
+    \end{itemize}
+\end{presentationbox}
+
+\begin{presentationbox}{Step-by-Step Breakdown}
+    \begin{itemize} [label=\color{blue}$\bullet$]
+        \item \textbf{The Prior (Starting Belief):} The initial ratio of one outcome vs. another.
+              \\ \textit{Example:} 10 Deer for every 1 Bear in the woods $\rightarrow$ \textbf{10:1}.
+        \item \textbf{The Evidence (Likelihood Ratio):} How much more likely the observed data is for one group compared to the other.
+              \\ \textit{Example:} Nighttime makes bears 4x more likely than deer $\rightarrow$ \textbf{1:4}.
+        \item \textbf{The Posterior (Updated Belief):} The result of the multiplication.
+              \\ \textit{Calculation:} $10:1 \times 1:4 = \mathbf{10:4}$ (or 2.5:1).
+    \end{itemize}
+\end{presentationbox}
+
+\begin{presentationbox}{My comments [Application on Medical Screening]}
+    \begin{itemize} [label=\color{blue}$\bullet$]
+        \item Consider a disease with 1\% prevalence (Prior = \textbf{1:99}) and a test that is 80\% accurate with a 9.6\% false positive rate.
+        \item The \textbf{Evidence Adjustment} is the ratio of True Positives to False Positives: $80 / 9.6 \approx \mathbf{8.33}$.
+        \item \textbf{Updated Odds:} $1:99 \times 8.33:1 \approx \mathbf{1:12}$.
+        \item Even with a positive test, the ratio reveals it is still 12x more likely the patient is healthy, providing immediate clarity over raw percentages.
+    \end{itemize}
+\end{presentationbox}
+
+\vspace{0.5cm}
+
+\section{Part III}
+
+\begingroup
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+The paper titled with \textit{A Modified Stochastic Gradient Descent Optimization Algorithm With Random Learning Rate for Machine Learning and Deep Learning} proposes a modified Stochastic Gradient Descent (mSGD) optimization algorithm that introduces a random learning rate to improve convergence in machine learning and deep learning.
+
+The key idea is to generate multiple random learning rates at each iteration, evaluate the loss function for each, and select the one that yields the minimum loss. This approach eliminates the need for manually tuning the learning rate as a hyperparameter and can be viewed as a numerical approximation of the steepest descent algorithm.
+
+\endgroup
+
+\end{document}
