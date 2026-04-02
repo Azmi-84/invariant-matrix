@@ -2,17 +2,23 @@
 
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{caption}
+\usepackage{booktabs}
 \usepackage{listings}
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{titlesec}
+\usepackage{microtype}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb, amsfonts}
 
+\geometry{paper=a4paper, layout=a4paper, margin=0.5in}
 \setstretch{1.15}
-\geometry{a4paper, margin=0.5in}
+
 \lstset{
+    language=Python,
     basicstyle=\ttfamily\small,
     breaklines=true,
     breakatwhitespace=false,
@@ -53,88 +59,89 @@
 
 \newpage
 
-\section{Question 1}
+\section{Question 1: Cam Profile Design}
 
-Here, we have to design a \textit{CAM profile} for \textit{Knife Edge follower} with the CAM specification of \textit{50 mm minimum radius, 25 mm shaft diameter, 230 rpm clockwise rotation}, and the follower specification of \textit{43 mm stroke length, SHM (Simple Harmonic Motion) during raise \& fall, 43 mm rise during $120^\circ$ rotation, $30^\circ$ dwell, 43 mm lower during next $90^\circ$, and $120^\circ$ dwell at end}.
+Here, we have to design a \textit{\textbf{CAM profile}} for \textit\textbf{{Knife Edge follower}} with the CAM specification of \textit{\textbf{50 mm minimum radius, 25 mm shaft diameter, 230 rpm clockwise rotation}}, and the follower specification of \textit{\textbf{43 mm stroke length, SHM (Simple Harmonic Motion) during raise \& fall, 43 mm rise during $120^\circ$ rotation, $30^\circ$ dwell, 43 mm lower during next $90^\circ$, and $120^\circ$ dwell at end}}.
 
 \subsection{Task}
 
 \begin{itemize}
 
-    \item [(a)] Below, a screenshot clearly showing the \textit{minimum diameter of the CAM} is given:
+    \item [(a)] Below, a screenshot clearly showing the \textit{\textbf{minimum diameter of the CAM}} is given:
 
           \begin{figure} [H]
               \centering
-              \includegraphics[width=0.6\linewidth,keepaspectratio]{minimum_dia_of_the_shaft}
+              \includegraphics[width=0.6\linewidth,keepaspectratio]{images/minimum_dia_of_the_shaft}
           \end{figure}
 
-    \item [(b)] Below, a screenshot of the \textit{displacement diagram} is given:
+    \item [(b)] Below, a screenshot of the \textit{\textbf{displacement diagram}} is given:
 
           \begin{figure} [H]
               \centering
-              \includegraphics[width=0.6\linewidth,keepaspectratio]{displacement_profile}
+              \includegraphics[width=0.6\linewidth,keepaspectratio]{images/displacement_profile}
           \end{figure}
 
-    \item [(c)] Below, a screenshot of the \textit{complete CAM follower system} is given:
+    \item [(c)] Below, a screenshot of the \textit{\textbf{complete CAM follower system}} is given:
 
           \begin{figure} [H]
               \centering
-              \includegraphics[width=0.6\linewidth,keepaspectratio]{Untitled}
+              \includegraphics[width=0.6\linewidth,keepaspectratio]{images/Untitled}
           \end{figure}
 
-    \item [(d)] Below, a screenshot of the \textit{Linear Displacement vs. Time Diagram} is given:
+    \item [(d)] Below, a screenshot of the \textit{\textbf{Linear Displacement vs. Time Diagram}} is given:
 
           \begin{figure} [H]
               \centering
-              \includegraphics[width=0.6\linewidth,keepaspectratio]{linear_displacement}
+              \includegraphics[width=0.6\linewidth,keepaspectratio]{images/linear_displacement}
           \end{figure}
 
-    \item [(e)] Below, a screenshot of the \textit{Linear Velocity vs. Time Diagram} is given:
+    \item [(e)] Below, a screenshot of the \textit{\textbf{Linear Velocity vs. Time Diagram}} is given:
 
           \begin{figure} [H]
               \centering
-              \includegraphics[width=0.6\linewidth,keepaspectratio]{linear_velocity}
+              \includegraphics[width=0.6\linewidth,keepaspectratio]{images/linear_velocity}
           \end{figure}
 
-    \item [(f)] Below, a screenshot of the \textit{Linear Acceleration vs. Time Diagram} is given:
+    \item [(f)] Below, a screenshot of the \textit{\textbf{Linear Acceleration vs. Time Diagram}} is given:
 
           \begin{figure} [H]
               \centering
-              \includegraphics[width=0.6\linewidth,keepaspectratio]{linear_acceleration}
+              \includegraphics[width=0.6\linewidth,keepaspectratio]{images/linear_acceleration}
 
           \end{figure}
 
 \end{itemize}
 
-\section{Question 2}
+\section{Question 2: Compound Gear Train Design}
 
-Here, we will design a compound gear train that reduces the rotational speed between an input shaft and output shaft. The \textbf{input shaft} rotates at \textbf{1830 rpm} in the clockwise direction. The \textbf{output shaft} rotates at \textbf{180 rpm} in the counterclockwise direction. We are considering the following constraints:
+Here, we will design a compound gear train that reduces the rotational speed between an input shaft and output shaft. The \textit{\textbf{input shaft}} rotates at \textit{\textbf{1830 rpm}} in the clockwise direction. The \textit{\textbf{output shaft}} rotates at \textit{\textbf{180 rpm}} in the counterclockwise direction. We are considering the following constraints:
 
 \begin{itemize}
 
-    \item [(a)] No gear in the transmission may act as an idler gear.
-    \item [(b)] The gear ratio at any individual mesh must not exceed 3:1.
-    \item [(c)] Available gears have integer tooth numbers ranging from 13 to 85.
-    \item [(d)] Only one gear exists for each tooth number, meaning the same tooth number cannot be used more than
-          once in the system.
-    \item [(e)] If the difference between the required ratio and calculated ratio is smaller than 0.01, then the gear
-          combination can be acceptable.
+    \item [(a)] \textit{No gear in the transmission may act as an idler gear.}
+    \item [(b)] \textit{The gear ratio at any individual mesh must not exceed 3:1.}
+    \item [(c)] \textit{Available gears have integer tooth numbers ranging from 13 to 85.}
+    \item [(d)] \textit{Only one gear exists for each tooth number, meaning the same tooth number cannot be used more than
+              once in the system.}
+    \item [(e)] \textit{If the difference between the required ratio and calculated ratio is smaller than 0.01, then the gear
+              combination can be acceptable.}
 
 \end{itemize}
 
 \subsection{Task}
 
 \begin{itemize}
-    \item [(a)] Below, a \textit{labeled sketch} of the gear train configuration is provided:
+    \item [(a)] Below, a \textit{\textbf{labeled sketch}} of the gear train configuration is provided:
 
           \begin{figure}[H]
               \centering
-              \includegraphics[width=0.6\linewidth,keepaspectratio]{Figure_1}
+              \includegraphics[width=0.6\linewidth,keepaspectratio]{images/Figure_1}
           \end{figure}
 
-    \item [(b)] The \textbf{python code} used to search for possible solutions:
+    \item [(b)] The \textit{\textbf{python code}} used to search for possible solutions:
 
           \begin{lstlisting}
+
 import pandas as pd
 
 input_rpm = 1830
@@ -180,26 +187,26 @@ print("\nTop 10 Candidate Gear Combinations:")
 print(df.to_string(index=False))
         \end{lstlisting}
 
-    \item [(c)] A \textbf{table} of ten candidate gear combinations produced by the program:
+    \item [(c)] A \textit{\textbf{table}} of ten candidate gear combinations produced by the program:
 
           \begin{table}[H]
               \centering
               \begin{tabular}{ccccccc}
-                  T1 (In) & T2 & T3 & T4 & T5 & T6 (Out) & Calculated Ratio \\
-                  13      & 15 & 14 & 42 & 16 & 47       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 14 & 42       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 17 & 51       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 18 & 54       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 19 & 57       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 20 & 60       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 21 & 63       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 22 & 66       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 23 & 69       & 10.1683          \\
-                  13      & 15 & 16 & 47 & 24 & 72       & 10.1683          \\
+                  \textit{\textbf{T1} (In)} & \textit{\textbf{T2}} & \textit{\textbf{T3}} & \textit{\textbf{T4}} & \textit{\textbf{T5}} & \textit{\textbf{T6} (Out)} & \textit{\textbf{Calculated Ratio}} \\
+                  13                        & 15                   & 14                   & 42                   & 16                   & 47                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 14                   & 42                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 17                   & 51                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 18                   & 54                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 19                   & 57                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 20                   & 60                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 21                   & 63                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 22                   & 66                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 23                   & 69                         & 10.1683                            \\
+                  13                        & 15                   & 16                   & 47                   & 24                   & 72                         & 10.1683                            \\
               \end{tabular}
           \end{table}
 
-    \item [(d)] The selected optimal gear set is the first one: \textit{T1(In) = 13, T2 = 15, T3 = 14, T4 = 42, T5 = 16 \& T6 (Out) = 47}. The reasons for being chosen the first combination is:
+    \item [(d)] The selected optimal gear set is the first one: \textit{\textbf{T1(In) = 13, T2 = 15, T3 = 14, T4 = 42, T5 = 16 \& T6 (Out) = 47}}. The reasons for being chosen the first combination is:
 
           \begin{itemize}
 
@@ -217,9 +224,9 @@ print(df.to_string(index=False))
 
                     \begin{itemize}
 
-                        \item [(a)] The maximum gear size used is \textit{47 teeth} where the later design used gears up to \textit{72 teeth}. Smaller gears result in a more compact gearbox, lower weight, and lower material cost.
+                        \item [(a)] The maximum gear size used is \textit{\textbf{47 teeth}} where the later design used gears up to \textit{\textbf{72 teeth}}. Smaller gears result in a more compact gearbox, lower weight, and lower material cost.
 
-                        \item [(b)] Using gear counts like \textit{13, 47, and 17} is generally preferred in mechanical design. These are often prime or have fewer common factors, which ensures that the same teeth don't meet as frequently.
+                        \item [(b)] Using gear counts like \textit{\textbf{13, 47, and 17}} is generally preferred in mechanical design. These are often prime or have fewer common factors, which ensures that the same teeth don't meet as frequently.
 
                     \end{itemize}
 
@@ -231,11 +238,11 @@ print(df.to_string(index=False))
                         \item [(c)] $R_3$ = 47/16 $\approx$ 2.94
                     \end{itemize}
 
-                    All individual meshes are $\leq 3.0$, satisfying constraint (b). While $R_1$ is quite small, keeping the largest gear to 47 teeth (instead of 72) is a significant advantage for the overall footprint of the assembly.
+                    All individual meshes are $\leq 3.0$, satisfying constraint \textit{\textbf{(b)}}. While $R_1$ is quite small, keeping the largest gear to 47 teeth (instead of 72) is a significant advantage for the overall footprint of the assembly.
 
               \item [(4)] All gears are part of a mesh that contributes to the ratio. So, there are \textit{no idlers}.
 
-              \item [(5)]  All tooth numbers $\{13, 15, 14, 42, 16, 47\}$ are unique, satisfying constraint (d).
+              \item [(5)]  All tooth numbers $\{13, 15, 14, 42, 16, 47\}$ are unique, satisfying constraint \textit{\textbf{(d)}}.
 
               \item [(6)] All values are within the $[13, 85]$ range.
 
