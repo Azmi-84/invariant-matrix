@@ -1,6 +1,8 @@
 import pandas as pd
 
-input_rpm = 1830
+last_two_digit_of_student_id = 30
+
+input_rpm = 1800 + last_two_digit_of_student_id
 output_rpm = 180
 target_ratio = input_rpm / output_rpm
 
